@@ -1,16 +1,472 @@
 ---
-
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4method - Herramientas para Desarrolladores</title>
+
+    <style>
+      .gradient-bg {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      }
+      .code-pattern {
+        background-image: radial-gradient(
+            circle at 25px 25px,
+            rgba(135, 206, 235, 0.1) 2px,
+            transparent 0
+          ),
+          radial-gradient(
+            circle at 75px 75px,
+            rgba(135, 206, 235, 0.05) 2px,
+            transparent 0
+          );
+        background-size: 100px 100px;
+      }
+      .hover-lift {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Mobile menu icon styles */
+      .menu-icon {
+        transition: opacity 0.2s ease;
+      }
+
+      .menu-icon.hidden {
+        opacity: 0;
+      }
+
+      .mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        max-height: 300px;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- Header -->
+    <header
+      class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100"
+    >
+      <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <div
+              class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-sm">4M</span>
+            </div>
+            <span class="text-xl font-bold text-petroleum">4method</span>
+          </div>
+          <nav class="hidden md:flex items-center space-x-8">
+            <a
+              href="#about"
+              class="text-gray-600 hover:text-petroleum transition-colors"
+              >Nosotros</a
+            >
+            <a
+              href="#services"
+              class="text-gray-600 hover:text-petroleum transition-colors"
+              >Servicios</a
+            >
+            <a
+              href="#contact"
+              class="bg-petroleum text-white px-6 py-2 rounded-lg hover:bg-dark-petroleum transition-colors"
+              >Contacto</a
+            >
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button
+            id="mobile-menu-button"
+            class="md:hidden flex items-center justify-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-petroleum/20"
+          >
+            <!-- Hamburger Icon -->
+            <svg
+              id="hamburger-icon"
+              class="menu-icon w-6 h-6 text-petroleum"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <!-- Close Icon -->
+            <svg
+              id="close-icon"
+              class="menu-icon hidden w-6 h-6 text-petroleum"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="mobile-menu md:hidden bg-white border-t border-gray-100"
+        >
+          <nav class="py-4 space-y-2">
+            <a
+              href="#about"
+              class="block text-gray-600 hover:text-petroleum hover:bg-gray-50 transition-all px-6 py-3 rounded-lg mx-4"
+              >Nosotros</a
+            >
+            <a
+              href="#services"
+              class="block text-gray-600 hover:text-petroleum hover:bg-gray-50 transition-all px-6 py-3 rounded-lg mx-4"
+              >Servicios</a
+            >
+            <a
+              href="#contact"
+              class="block bg-petroleum text-white hover:bg-dark-petroleum transition-colors px-6 py-3 rounded-lg mx-4 text-center"
+              >Contacto</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 code-pattern">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center max-w-4xl mx-auto">
+          <h1
+            class="text-5xl md:text-6xl font-bold text-petroleum mb-6 leading-tight"
+          >
+            Herramientas que
+            <span class="text-light-blue">potencian</span>
+            desarrolladores
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+            Creamos librerías y herramientas de código open-source para la
+            comunidad de desarrolladores. Software a medida para sostener
+            nuestra misión.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#services"
+              class="bg-petroleum text-white px-8 py-4 rounded-lg text-lg hover:bg-dark-petroleum transition-all hover-lift"
+            >
+              Ver Servicios
+            </a>
+            <a
+              href="#about"
+              class="border-2 border-petroleum text-petroleum px-8 py-4 rounded-lg text-lg hover:bg-petroleum hover:text-white transition-all hover-lift"
+            >
+              Conoce Más
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-petroleum mb-8">
+            ¿Qué es 4method?
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            Somos una organización dedicada a crear herramientas útiles para la
+            comunidad de desarrolladores. Nuestro objetivo es simplificar el
+            desarrollo de software a través de librerías innovadoras y
+            soluciones técnicas de calidad.
+          </p>
+          <div class="grid md:grid-cols-3 gap-8 mt-12">
+            <div class="text-center hover-lift bg-white p-8 rounded-xl">
+              <div
+                class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-white text-2xl">📚</span>
+              </div>
+              <h3 class="text-xl font-semibold text-petroleum mb-3">
+                Librerías
+              </h3>
+              <p class="text-gray-600">
+                Creamos librerías open-source que resuelven problemas comunes
+                del desarrollo.
+              </p>
+            </div>
+            <div class="text-center hover-lift bg-white p-8 rounded-xl">
+              <div
+                class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-white text-2xl">🛠️</span>
+              </div>
+              <h3 class="text-xl font-semibold text-petroleum mb-3">
+                Herramientas
+              </h3>
+              <p class="text-gray-600">
+                Desarrollamos herramientas que mejoran la productividad de los
+                equipos.
+              </p>
+            </div>
+            <div class="text-center hover-lift bg-white p-8 rounded-xl">
+              <div
+                class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-white text-2xl">💡</span>
+              </div>
+              <h3 class="text-xl font-semibold text-petroleum mb-3">
+                Innovación
+              </h3>
+              <p class="text-gray-600">
+                Buscamos constantemente nuevas formas de aportar valor a la
+                comunidad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-petroleum mb-6">
+            Nuestros Servicios
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Ofrecemos desarrollo de software a medida para financiar nuestras
+            contribuciones open-source
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="space-y-8">
+              <div class="border-l-4 border-light-blue pl-6">
+                <h3 class="text-xl font-semibold text-petroleum mb-3">
+                  Desarrollo Open-Source
+                </h3>
+                <p class="text-gray-600">
+                  Creamos y mantenemos librerías públicas que benefician a toda
+                  la comunidad de desarrolladores.
+                </p>
+              </div>
+              <div class="border-l-4 border-petroleum pl-6">
+                <h3 class="text-xl font-semibold text-petroleum mb-3">
+                  Software a Medida
+                </h3>
+                <p class="text-gray-600">
+                  Desarrollamos soluciones personalizadas para empresas,
+                  financiando así nuestros proyectos comunitarios.
+                </p>
+              </div>
+              <div class="border-l-4 border-light-blue pl-6">
+                <h3 class="text-xl font-semibold text-petroleum mb-3">
+                  Consultoría Técnica
+                </h3>
+                <p class="text-gray-600">
+                  Asesoramos en la implementación de mejores prácticas y
+                  arquitecturas de software.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-2xl">
+            <div class="text-center">
+              <div
+                class="w-24 h-24 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-6"
+              >
+                <span class="text-white text-4xl">⚡</span>
+              </div>
+              <h3 class="text-2xl font-bold text-petroleum mb-4">
+                Modelo Sostenible
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Nuestro modelo de negocio permite que los ingresos del
+                desarrollo comercial financien directamente la creación de
+                herramientas gratuitas para la comunidad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          ¿Tienes un proyecto en mente?
+        </h2>
+        <p class="text-xl text-gray-200 mb-8">
+          Hablemos sobre cómo podemos ayudarte mientras construimos herramientas
+          para la comunidad
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="mailto:contacto@4method.dev"
+            class="bg-white text-petroleum px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all hover-lift"
+          >
+            Enviar Email
+          </a>
+          <a
+            href="#"
+            class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg hover:bg-white hover:text-petroleum transition-all hover-lift"
+          >
+            Ver Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center space-x-2 mb-4 md:mb-0">
+            <div
+              class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-sm">4M</span>
+            </div>
+            <span class="text-xl font-bold">4method</span>
+          </div>
+          <div class="text-gray-400 text-sm">
+            © 2025 4method. Construyendo herramientas para desarrolladores.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Improved mobile menu functionality
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+      let isMenuOpen = false;
+
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+          // Show close icon, hide hamburger
+          hamburgerIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+          mobileMenu.classList.add("open");
+          // Prevent body scroll when menu is open
+          document.body.style.overflow = "hidden";
+        } else {
+          // Show hamburger icon, hide close
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+          mobileMenu.classList.remove("open");
+          // Restore body scroll
+          document.body.style.overflow = "";
+        }
+      }
+
+      function closeMenu() {
+        if (isMenuOpen) {
+          isMenuOpen = false;
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+          mobileMenu.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      }
+
+      // Toggle menu on button click
+      mobileMenuButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      // Close menu when clicking on navigation links
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          isMenuOpen &&
+          !mobileMenu.contains(e.target) &&
+          !mobileMenuButton.contains(e.target)
+        ) {
+          closeMenu();
+        }
+      });
+
+      // Close menu on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isMenuOpen) {
+          closeMenu();
+        }
+      });
+
+      // Handle window resize - close menu if switching to desktop
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768 && isMenuOpen) {
+          closeMenu();
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Subtle parallax effect on hero
+      let ticking = false;
+      function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector(".code-pattern");
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.2}px)`;
+        }
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener("scroll", requestTick);
+    </script>
+  </body>
 </html>

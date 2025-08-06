@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --color-petroleum: #1e3a8a;
+  --color-light-blue: #87ceeb;
+  --color-dark-petroleum: #1e40af;
+}
+
+@layer utilities {
+  .text-petroleum {
+    color: var(--color-petroleum);
+  }
+  .bg-petroleum {
+    background-color: var(--color-petroleum);
+  }
+  .border-petroleum {
+    border-color: var(--color-petroleum);
+  }
+  .hover\:bg-petroleum:hover {
+    background-color: var(--color-petroleum);
+  }
+  .hover\:text-petroleum:hover {
+    color: var(--color-petroleum);
+  }
+  .focus\:ring-petroleum\/20:focus {
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
+  }
+  
+  .text-light-blue {
+    color: var(--color-light-blue);
+  }
+  
+  .text-dark-petroleum {
+    color: var(--color-dark-petroleum);
+  }
+  .bg-dark-petroleum {
+    background-color: var(--color-dark-petroleum);
+  }
+  .hover\:bg-dark-petroleum:hover {
+    background-color: var(--color-dark-petroleum);
+  }
+}
