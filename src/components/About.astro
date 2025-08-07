@@ -1,0 +1,48 @@
+---
+import Card from "./ui/Card.astro";
+import IconBadge from "./ui/IconBadge.astro";
+---
+
+<section id="about" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-petroleum mb-8">
+        ¿Qué es 4method?
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+        Somos una organización dedicada a crear herramientas útiles para la
+        comunidad de desarrolladores. Nuestro objetivo es simplificar el
+        desarrollo de software a través de librerías innovadoras y soluciones
+        técnicas de calidad.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <Card className="text-center">
+          <IconBadge icon="📚" size="md" className="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-petroleum mb-3">Librerías</h3>
+          <p class="text-gray-600">
+            Creamos librerías open-source que resuelven problemas comunes del
+            desarrollo.
+          </p>
+        </Card>
+        <Card className="text-center">
+          <IconBadge icon="🛠️" size="md" className="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-petroleum mb-3">
+            Herramientas
+          </h3>
+          <p class="text-gray-600">
+            Desarrollamos herramientas que mejoran la productividad de los
+            equipos.
+          </p>
+        </Card>
+        <Card className="text-center">
+          <IconBadge icon="💡" size="md" className="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-petroleum mb-3">Innovación</h3>
+          <p class="text-gray-600">
+            Buscamos constantemente nuevas formas de aportar valor a la
+            comunidad.
+          </p>
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>

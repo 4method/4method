@@ -1,0 +1,86 @@
+---
+import Button from "./ui/Button.astro";
+import Logo from "./ui/Logo.astro";
+---
+
+<header
+  class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100"
+>
+  <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <Logo />
+      <nav class="hidden md:flex items-center space-x-8">
+        <a
+          href="#about"
+          class="text-gray-600 hover:text-petroleum transition-colors"
+          >Nosotros</a
+        >
+        <a
+          href="#services"
+          class="text-gray-600 hover:text-petroleum transition-colors"
+          >Servicios</a
+        >
+        <Button href="#contact" variant="primary">Contacto</Button>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden flex items-center justify-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-petroleum/20"
+      >
+        <!-- Hamburger Icon -->
+        <svg
+          id="hamburger-icon"
+          class="menu-icon w-6 h-6 text-petroleum"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <!-- Close Icon -->
+        <svg
+          id="close-icon"
+          class="menu-icon hidden w-6 h-6 text-petroleum"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobile-menu"
+      class="mobile-menu md:hidden bg-white border-t border-gray-100"
+    >
+      <nav class="py-4 space-y-2">
+        <a
+          href="#about"
+          class="block text-gray-600 hover:text-petroleum hover:bg-gray-50 transition-all px-6 py-3 rounded-lg mx-4"
+          >Nosotros</a
+        >
+        <a
+          href="#services"
+          class="block text-gray-600 hover:text-petroleum hover:bg-gray-50 transition-all px-6 py-3 rounded-lg mx-4"
+          >Servicios</a
+        >
+        <div class="mx-4">
+          <Button href="#contact" variant="primary" className="w-full"
+            >Contacto</Button
+          >
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
